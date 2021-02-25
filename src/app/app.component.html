@@ -1,0 +1,57 @@
+<!-- main app container -->
+<nav class="navbar navbar-top navbar-expand navbar-dark border-bottom">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav align-items-center  ml-md-auto ">
+      </ul>
+      <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+        <li class="nav-item dropdown">
+          <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="media align-items-center">
+              <span class="avatar avatar-sm rounded-circle">
+                <img alt="Image placeholder" src="https://img.favpng.com/21/9/10/computer-icons-user-profile-google-account-png-favpng-dXFbNTwn0HmvS9QcrvPSrL4K3.jpg">
+              </span>
+              <div class="media-body  ml-2  d-none d-lg-block">
+                <span class="mb-0 text-sm  font-weight-bold">
+                  Account
+                </span>
+              </div>
+            </div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" *ngIf="isUserLoggedIn">
+            <a (click)="logout()" class="dropdown-item"><i class="ni ni-user-run"></i><span>Logout</span></a>
+          </div>
+          <div class="dropdown-menu dropdown-menu-right" *ngIf="!isUserLoggedIn">
+            <a (click)="login()" class="dropdown-item"><i class="ni ni-user-run"></i><span>Login</span></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="header bg-gradient-primary py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-7">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6">
+          <h1 class="text-white">
+            Page Manager
+          </h1>
+          <p class="text-lead text-light">
+            Open-Source app to manage your facebook page.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+         xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<div class="container pt-4">
+  <router-outlet></router-outlet>
+</div>
+
