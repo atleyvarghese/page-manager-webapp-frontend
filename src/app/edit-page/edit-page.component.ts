@@ -16,6 +16,7 @@ export class EditPageComponent implements OnInit {
   loading = false;
   submitted = false;
   error = '';
+  readonly = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,12 +32,15 @@ export class EditPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    const urlRegex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+    const phoneRegex = /^([0]|\+91)?\d{10}$/;
     this.form = this.formBuilder.group({
+      id: ['', Validators.required],
       name: ['', Validators.required],
-      phone: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern(phoneRegex)]],
       about: ['', Validators.required],
-      website: ['', Validators.required],
-      emails: ['', Validators.required],
+      website: ['', [Validators.required, Validators.pattern(urlRegex)]],
+      emails: ['', [Validators.required, Validators.email]],
     });
 
     // get account and populate form

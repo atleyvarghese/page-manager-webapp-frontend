@@ -23,10 +23,13 @@
                 <div class="col-lg-12">
                   <div class="form-group">
                     <label class="form-control-label" for="input-name">Name</label>
-                    <input [ngClass]="{ 'is-invalid': submitted && f.name.errors }" class="form-control" id="input-name" formControlName="name" placeholder="Name" type="text"/>
-                    <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-                      <div *ngIf="f.name.errors.required">Name is required</div>
-                    </div>
+                    <input [readOnly]="readonly" class="form-control" id="input-name" formControlName="name" placeholder="Name" type="text"/>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-name">ID</label>
+                    <input [readOnly]="readonly" class="form-control" id="input-id" formControlName="id" placeholder="ID" type="text"/>
                   </div>
                 </div>
                 <div class="col-lg-12">
@@ -35,6 +38,7 @@
                     <input [ngClass]="{ 'is-invalid': submitted && f.website.errors }" class="form-control" id="input-website" formControlName="website" placeholder="Website" type="text"/>
                     <div *ngIf="submitted && f.website.errors" class="invalid-feedback">
                       <div *ngIf="f.website.errors.required">Website is required</div>
+                      <div *ngIf="f.website.errors.pattern">Invalid Web address</div>
                     </div>
                   </div>
                 </div>
@@ -50,6 +54,7 @@
                       <input id="input-address" [ngClass]="{ 'is-invalid': submitted && f.emails.errors }" class="form-control" formControlName="emails" placeholder="Email" type="email">
                       <div *ngIf="submitted && f.emails.errors" class="invalid-feedback">
                         <div *ngIf="f.emails.errors.required">Email is required</div>
+                        <div *ngIf="f.website.errors.email">Invalid Email address</div>
                       </div>
                     </div>
                   </div>
@@ -61,6 +66,7 @@
                       <input id="input-phone" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" class="form-control" formControlName="phone" placeholder="Phone" type="text">
                       <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
                         <div *ngIf="f.phone.errors.required">Phone is required</div>
+                        <div *ngIf="f.phone.errors.pattern">Invalid Web address</div>
                       </div>
                     </div>
                   </div>
