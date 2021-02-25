@@ -1,6 +1,12 @@
 # PageManagerWebappFrontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+The purpose of the app is to update the details of a page managed by the logged-in user. Thes user can log in to the site via Facebook and see the available pages he manages and will be able to updates the basic page details.
+
+## Live Demo
+
+The Webapp is hosted in Heroku [PageManagerWebappFrontend
+](https://facebook-page-management.herokuapp.com/).
+For the test creds, you can contact me at atleyvarghese@gmail.com.
 
 ## Development server
 
