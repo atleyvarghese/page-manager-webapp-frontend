@@ -10,6 +10,9 @@ import {AccountService} from '@app/_services';
 import {appInitializer, ErrorInterceptor, JwtInterceptor} from '@app/_helpers';
 import { HomeComponent } from './home/home.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
+import { ToastrModule } from 'ngx-toastr';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { EditPageComponent } from './edit-page/edit-page.component';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AccountService]},

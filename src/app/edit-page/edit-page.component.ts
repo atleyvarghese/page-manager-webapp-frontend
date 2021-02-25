@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AccountService} from '@app/_services';
 import {first} from 'rxjs/operators';
 import {Page} from '@app/_models';
+import {NotificationService} from '@app/_services/notification.service';
 
 @Component({
   selector: 'app-edit-page',
@@ -22,8 +23,10 @@ export class EditPageComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private accountService: AccountService
-  ) {
+    private accountService: AccountService,
+    private notifyService: NotificationService
+
+) {
   }
 
   // convenience getter for easy access to form fields
@@ -68,11 +71,13 @@ export class EditPageComponent implements OnInit {
       .subscribe({
         next: () => {
           this.router.navigate(['../'], {relativeTo: this.route});
+          this.notifyService.showSuccess('Update Successful !!', 'Page');
         },
         error: error => {
           this.error = error;
           this.loading = false;
         }
       });
+
   }
 }

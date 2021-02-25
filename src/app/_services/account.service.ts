@@ -15,6 +15,7 @@ export class AccountService {
   private accountSubject: BehaviorSubject<Account>;
   private authenticateTimeout;
 
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
